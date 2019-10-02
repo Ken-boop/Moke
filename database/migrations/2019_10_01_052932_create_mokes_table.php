@@ -13,10 +13,15 @@ class CreateMokesTable extends Migration
      */
     public function up()
     {
-        Schema::create('diaries', function (Blueprint $table) {
-            $table->increments('id'); 
-            $table->string('title', 30); //追加
-            $table->text('body'); //追加
+        Schema::create('mokes', function (Blueprint $table) {
+            $table->increments('moke_id'); 
+            $table->integer('organizer_id')->unsigned();
+            $table->foreign('organizer_id')->references('id')->on('users');
+            $table->string('moke_name', 30); //追加
+            $table->datetime('due_date');
+            $table->datetime('end_date');
+            $table->text('moke_details'); //追加
+            $table->text('address'); //追加
             $table->timestamps();
         });
     }
