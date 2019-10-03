@@ -1,5 +1,8 @@
 @extends('layouts.app')
+@section('title','登録画面')
 
 @section('content')
-    <h1>hello!</h1>
-@stop
+    <div class="container">
+    
+    </div>
+@endsection
