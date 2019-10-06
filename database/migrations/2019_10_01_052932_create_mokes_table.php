@@ -20,7 +20,7 @@ class CreateMokesTable extends Migration
             $table->string('moke_name', 30); //追加
             $table->datetime('due_date');
             $table->datetime('end_date');
-            $table->text('moke_details'); //追加
+            $table->text('moke_detail'); //追加
             $table->text('address'); //追加
             $table->timestamps();
         });
