@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-    <a href="./login">ログイン</a>
     <a href="./resister">登録</a>
+    <a href="./login">ログイン</a>
 </div>
 @endsection
