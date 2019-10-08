@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Web Routes コントローラーの命名は単数形にしよう〜
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -40,3 +40,10 @@ Route::get('/content', 'HomeController@content');
 // // ログアウト画面へ
 // Route::get('/home/logout', 'UsersController@logout')->name('Users.logout');
 // a
+
+
+Route::resource('moke', 'MokeController');
+// Route::get('event/create', 'EventController@edit')->name('event.create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
