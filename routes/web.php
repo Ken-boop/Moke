@@ -42,5 +42,8 @@ Route::get('/content', 'HomeController@content');
 // a
 
 
-Route::resource('event', 'EventController')->only('index', 'create');
+Route::resource('moke', 'MokeController');
 // Route::get('event/create', 'EventController@edit')->name('event.create');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
