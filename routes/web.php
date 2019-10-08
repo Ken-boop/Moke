@@ -37,7 +37,5 @@ Route::get('/content', 'HomeController@content');
 // Route::get('/home/users', 'UsersController@showUsers')->name('User.users');
 // // チャット画面へ
 // Route::get('/home/chats', 'UsersController@showChat')->name('User.chats');
-// // ログアウト画面へ
-// Route::get('/home/logout', 'UsersController@logout')->name('Users.logout');
 
 
