@@ -42,7 +42,7 @@
 // a
 
 
-Route::resource('moke', 'MokeController');
+// Route::resource('moke', 'MokeController');
 // Route::get('event/create', 'EventController@edit')->name('event.create');
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
