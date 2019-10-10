@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class MokeController extends Controller
 {
     //
-    public function index(){
-                        // diariesテーブルのデータを全件取得
+    public function index()
+    {
+        // diariesテーブルのデータを全件取得
         // allメソッド：全件データを取得するメソッド
         $mokes = Moke::all();
 
@@ -21,4 +22,5 @@ class MokeController extends Controller
             'mokes' =>$mokes,
         ]);
     }
+
 }
