@@ -25,11 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-    // ログイン画面
-    public function login()
-    {
-    return view('home.login');
-    }
-    
 }

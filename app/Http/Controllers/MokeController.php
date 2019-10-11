@@ -24,7 +24,7 @@ class MokeController extends Controller
     // イベント新規投稿画面
     public function create()
     {
-        return view('top.create');
+        return view('home.create');
     }
 
     public function store(Request $request)
