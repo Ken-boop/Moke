@@ -6,16 +6,24 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //top画面
-    public function welcome()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-    return view('home.welcome');
+        $this->middleware('auth');
     }
 
-    // 新規登録画面
-    public function resister()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-    return view('home.resister');
+        return view('home');
     }
 
     // ログイン画面

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "c8e02b76022bf8d0a1f5165101556e86",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1075,6 +1075,28 @@
                 "jwt"
             ],
             "time": "2019-05-24T18:30:49+00:00"
+        },
+        {
+            "name": "leaflet/leaflet",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aissasell/leaflet.git",
+                "reference": "7eadefcbd4d8bbb9af36a2b78186e6d068afa177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aissasell/leaflet/zipball/7eadefcbd4d8bbb9af36a2b78186e6d068afa177",
+                "reference": "7eadefcbd4d8bbb9af36a2b78186e6d068afa177",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "description": "an open-source JavaScript library for mobile-friendly interactive maps",
+            "time": "2019-03-23T14:27:52+00:00"
         },
         {
             "name": "league/flysystem",
