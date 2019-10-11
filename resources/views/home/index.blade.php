@@ -2,6 +2,8 @@
 @section('title','ホーム')
 
 @section('content')
+
+<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
     @foreach ($mokes as $moke)
         <div class="m-4 p-4 border border-primary">
             <p>{{ $moke->moke_name }}</p>
