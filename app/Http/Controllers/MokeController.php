@@ -11,7 +11,7 @@ class MokeController extends Controller
     //
     public function index()
     {
-        // diariesテーブルのデータを全件取得
+        // テーブルのデータを全件取得
         // allメソッド：全件データを取得するメソッド
         $mokes = Moke::all();
 
@@ -23,4 +23,24 @@ class MokeController extends Controller
         ]);
     }
 
+    // イベント新規投稿画面
+    public function create()
+    {
+        return view('top.create');
+    }
+
+    public function store(Request $request)
+    {
+        $moke = new Moke(); //Mokeモデルをインスタンス化
+
+        $moke->organizer_id = Auth::user()->id;
+        $moke->moke_name = $request->moke_name;
+        $moke->address = $request->address;
+        $moke->due_date = $request->due_date;
+        $moke->end_date = $request->end_date;
+        $moke->moke_detail = $request->moke_detail;
+        $moke->save(); //DBに保存
+    
+        return redirect()->route('moke.index'); //一覧ページにリダイレクト
+    }
 }
