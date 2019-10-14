@@ -14,6 +14,4 @@
         </div>
         <a class="btn btn-success" href="{{ route('moke.edit', ['moke' => $moke->moke_id]) }}">イベント編集</a>
     @endforeach
-
-
 @endsection
