@@ -41,4 +41,17 @@ class MokeController extends Controller
     
         return redirect()->route('moke.index'); //一覧ページにリダイレクト
     }
+
+    public function update(int $moke,Request $request)
+    {
+        $moke = Moke::find($moke);
+        $moke->moke_name= $request->moke_name;
+        $moke->moke_detail= $request->moke_detail;
+        $moke->organizer_id = Auth::user()->id;
+        $moke->due_date = $request->due_date;
+        $moke->end_date = $request->end_date;
+        $moke->address = $request->address;
+        $moke->save(); //DBに保存
+        return redirect()->route('moke.index'); 
+    } 
 }
