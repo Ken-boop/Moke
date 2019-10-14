@@ -58,9 +58,9 @@ Route::group(['middleware' => 'auth'], function() {
     // 新規イベント登録 
     Route::post('/home/create', 'MokeController@store')->name('moke.create');
     // イベント編集画面へ
-    Route::get('/home/{moke}/{user}/edit', 'MokeController@edit')->name('moke.edit');
+    Route::get('/home/{moke}/edit', 'MokeController@edit')->name('moke.edit');
     // イベント編集実行
-    Route::put('/home/{moke}/{user}/update', 'MokeController@update')->name('moke.update');
+    Route::put('/home/{moke}/update', 'MokeController@update')->name('moke.update');
     // // 招待画面へ
     // Route::get('/home/{moke}/invite', 'NotificationController@invite')->name('notification.invite');
     // // 招待実行
