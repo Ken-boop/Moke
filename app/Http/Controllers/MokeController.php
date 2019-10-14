@@ -42,6 +42,12 @@ class MokeController extends Controller
         return redirect()->route('moke.index'); //一覧ページにリダイレクト
     }
 
+    public function edit(int $moke)
+    {
+        $moke = Moke::find($moke); 
+        return view('home.edit',['moke' => $moke]);
+    }
+
     public function update(int $moke,Request $request)
     {
         $moke = Moke::find($moke);
