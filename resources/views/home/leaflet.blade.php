@@ -125,7 +125,9 @@ mymap.on('click', function(e) {
             <p>{{ $moke->address }}</p>
             <p>{{ $moke->created_at }}</p>
             <a class="btn btn-success" href="{{ route('moke.edit', ['moke' => $moke->moke_id]) }}">イベント編集</a>
+            <a class="btn btn-success" href="{{ route('moke.create', ['id' => $moke->id]) }}">イベント詳細</a>
         </div>
+        
 @endforeach
 
 </body>
