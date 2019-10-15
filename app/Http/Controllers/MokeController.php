@@ -23,4 +23,28 @@ class MokeController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        //dd("作成")
+        return view('home.create');
+    }
+
+    public function store(Request $request)
+    {
+        $moke = new Moke();
+
+        $moke->moke_name = $request->moke_name;
+        $moke->moke_detail = $request->moke_detail;
+        $moke->due_date = $request->due_date;
+        $moke->end_date = $request->end_date;
+        $moke->address = $request->address;
+        $moke->organizer_id = Auth::user()->id;
+        $moke->save();
+
+        return redirect()->route('moke.index');
+    }
+
+    public function 
+
+   
 }
