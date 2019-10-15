@@ -16,7 +16,6 @@ class MokeController extends Controller
         $mokes = Moke::get();
 
         // dd($diaries); //var_dump +処理をここで中断
-
         // view('フォルダ名.ファイル名', ['受け取られるデータの名前' =>$とられるデータ,]) 
         return view('home.leaflet', compact('mokes'));
     }
