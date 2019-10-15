@@ -13,6 +13,4 @@
             <p>{{ $moke->created_at }}</p>
         </div>
     @endforeach
-
-
 @endsection
