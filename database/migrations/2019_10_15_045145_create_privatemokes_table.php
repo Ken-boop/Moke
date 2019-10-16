@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParticipantsTable extends Migration
+class CreatePrivatemokesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateParticipantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('participants', function (Blueprint $table) {
-            $table->increments('participant_id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+        Schema::create('privatemokes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('organizer_id')->unsigned();
+            $table->foreign('organizer_id')->references('id')->on('users');
+            $table->integer('viewer_id')->unsigned();
+            $table->foreign('viewer_id')->references('id')->on('users');
             $table->integer('moke_id')->unsigned();
             $table->foreign('moke_id')->references('id')->on('mokes');
             $table->timestamps();
@@ -30,6 +32,6 @@ class CreateParticipantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('participants');
+        Schema::dropIfExists('mokes');
     }
 }

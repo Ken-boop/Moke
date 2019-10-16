@@ -14,7 +14,7 @@ class CreateMokesTable extends Migration
     public function up()
     {
         Schema::create('mokes', function (Blueprint $table) {
-            $table->increments('moke_id'); 
+            $table->increments('id'); 
             $table->integer('organizer_id')->unsigned();
             $table->foreign('organizer_id')->references('id')->on('users');
             $table->string('moke_name', 30); //追加
@@ -22,6 +22,8 @@ class CreateMokesTable extends Migration
             $table->datetime('end_date');
             $table->text('moke_detail'); //追加
             $table->text('address'); //追加
+            $table->point('coordinate');
+            $table->integer('publication_range');
             $table->timestamps();
         });
     }
