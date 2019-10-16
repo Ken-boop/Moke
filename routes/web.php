@@ -65,8 +65,10 @@ Route::group(['middleware' => 'auth'], function() {
     // Route::get('/home/{moke}/invite', 'NotificationController@invite')->name('notification.invite');
     // // 招待実行
     // Route::put('/home/{moke}/{user}/invite', 'NotificationController@store')->name('notification.invite');
-    // フレンド画面へ
+    // フレンド登録画面へ
     Route::get('/home/{user}/friend', 'FriendController@index')->name('friend.index');
+    // フレンド登録実行
+    Route::post('/home/{user}/friend', 'FriendController@store')->name('friend.index');
     // 通知画面へ
     Route::get('/home/{user}/notification', 'NotificationController@index')->name('Notification.index');
     // // イベント検索画面へaaa
