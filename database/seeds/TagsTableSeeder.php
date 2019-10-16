@@ -29,7 +29,7 @@ class TagsTableSeeder extends Seeder
         foreach ($tags as $tag) {
 
             DB::table('tags')->insert([
-                'tag' => $tag['tag'],
+                'tag_name' => $tag['tag'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
