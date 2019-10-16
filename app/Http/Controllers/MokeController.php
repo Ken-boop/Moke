@@ -59,4 +59,13 @@ class MokeController extends Controller
         $moke->save(); //DBに保存
         return redirect()->route('moke.index'); 
     } 
+
+    public function show(int $id)
+    {
+        $moke = Moke::With('tags')->find($id);
+
+        // dd($moke->tags);
+
+        return view('home.detail', ['moke' => $moke]);
+    }
 }
