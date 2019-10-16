@@ -25,6 +25,8 @@
 <body>
 <a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
 
+<a href="{{ route('friend.index', ['user' => $user_id]) }}" class="btn btn-warning">友達登録</a>
+
 <div id="mapid"></div>
 
 <script type="text/javascript">
