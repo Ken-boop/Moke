@@ -68,7 +68,7 @@ Route::group(['middleware' => 'auth'], function() {
     // フレンド登録画面へ
     Route::get('/home/{user}/friend', 'FriendController@index')->name('friend.index');
     // フレンド登録実行
-    Route::get('/home/{user}/friend', 'FriendController@index')->name('friend.index');
+    Route::post('/home/{user}/friend', 'FriendController@store')->name('friend.index');
     // 通知画面へ
     Route::get('/home/{user}/notification', 'NotificationController@index')->name('Notification.index');
     // // イベント検索画面へaaa
