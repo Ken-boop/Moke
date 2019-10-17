@@ -27,7 +27,7 @@ class PrivatemokesTableSeeder extends Seeder
                 'moke_id' => '1',
             ],
             [
-                'viewer_id' => '4',
+                'viewer_id' => '2',
                 'organizer_id'  => '1',
                 'moke_id' => '2',
             ],
@@ -35,7 +35,7 @@ class PrivatemokesTableSeeder extends Seeder
 
         foreach ($privatemokes as $privatemoke) {
 
-            DB::table('pri$privatemokes')->insert([
+            DB::table('privatemokes')->insert([
                 'viewer_id' => $privatemoke['viewer_id'],
                 'organizer_id' => $privatemoke['organizer_id'],
                 'moke_id' => $privatemoke['moke_id'],
