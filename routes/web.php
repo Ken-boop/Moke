@@ -64,6 +64,8 @@ Route::group(['middleware' => 'auth'], function() {
     // Route::put('/home/{moke}/{user}/update', 'MokeController@update')->name('moke.update');
     // イベント削除
     Route::delete('/home/{moke}/destroy','MokeController@delete')->name('moke.destroy');
+    // イベント詳細画面へ
+    Route::get('/home/{moke}/detail', 'MokeController@show')->name('moke.detail');
     // // 招待画面へ
     // Route::get('/home/{moke}/invite', 'NotificationController@invite')->name('notification.invite');
     // // 招待実行

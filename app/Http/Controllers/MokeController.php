@@ -74,4 +74,13 @@ class MokeController extends Controller
    }
 
    
+
+    public function show(int $id)
+    {
+        $moke = Moke::With('tags')->find($id);
+
+        // dd($moke->tags);
+
+        return view('home.detail', ['moke' => $moke]);
+    }
 }
