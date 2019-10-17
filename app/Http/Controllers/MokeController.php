@@ -60,9 +60,9 @@ class MokeController extends Controller
         return redirect()->route('moke.index'); 
     } 
 
-    public function show(int $moke)
+    public function show(int $id)
     {
-        $moke = Moke::With('mokes_tags')->find($moke);
+        $moke = Moke::With('tags')->find($id);
 
         // dd($moke->tags);
 

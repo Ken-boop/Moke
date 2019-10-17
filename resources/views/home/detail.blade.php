@@ -19,7 +19,7 @@
                   <p>{{ $moke->moke_id }}</p>
                   <p>タグ：
                     @foreach ($moke->tags as $tag)
-                      #{{ $tag->tag }}
+                      #{{ $tag->tag_name }}
                       &nbsp;
                     @endforeach
                    </p>
