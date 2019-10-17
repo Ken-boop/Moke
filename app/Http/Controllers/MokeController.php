@@ -62,7 +62,7 @@ class MokeController extends Controller
 
     public function show(int $moke)
     {
-        $moke = Moke::With('mokes_tags')->find($moke);
+        $moke = Moke::With('tags')->find($moke);
 
         // dd($moke->tags);
 
