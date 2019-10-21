@@ -35,6 +35,8 @@ class MokeController extends Controller
         $moke->address = $request->address;
         $moke->due_date = $request->due_date;
         $moke->end_date = $request->end_date;
+        $moke->lat = $request->lat;
+        $moke->lng = $request->lng;
         $moke->moke_detail = $request->moke_detail;
         $moke->save(); //DBに保存
     
