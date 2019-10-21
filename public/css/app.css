@@ -9259,7 +9259,10 @@ button.bg-dark:focus {
 }
 
 .m-5 {
-  margin: 3rem !important;
+  margin-top: 0rem !important;
+  margin-right: 3rem !important;
+  margin-bottom: 3rem !important;
+  margin-left: 3rem !important;
 }
 
 .mt-5,
