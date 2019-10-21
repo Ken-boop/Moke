@@ -66,10 +66,11 @@ class MokeController extends Controller
    public function delete(int $moke)
    {
        //dd('test');
-       //dd($moke);
+    //  dd($moke);
        $moke = Moke::find($moke);
-       //dd($moke);
+    // dd($moke);
        $moke->delete();
+
        return redirect()->route('moke.index');
    }
 

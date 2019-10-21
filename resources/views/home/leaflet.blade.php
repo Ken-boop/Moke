@@ -126,8 +126,11 @@ mymap.on('click', function(e) {
             <p>{{ $moke->created_at }}</p>
             <a class="btn btn-success1" href="{{ route('moke.detail', ['moke' => $moke->id]) }}">イベント詳細</a>
             <a class="btn btn-success2" href="{{ route('moke.edit', ['moke' => $moke->id]) }}">イベント編集</a>
-            
-            <a class="btn btn-danger" href="{{ route('moke.destroy',['moke' => $moke->id]) }}">イベント削除</a>
+            <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">削除</button>
+            </form>
             
         </div>
         
