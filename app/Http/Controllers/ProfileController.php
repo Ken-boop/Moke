@@ -3,12 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profile;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
     public function show()
     {
         return view('home.profile');
+    }
+
+    public function store()
+    {
+        $profile = new Profile();
+
+        $profile->name = $request->name;
+        $profile->gender = $request->gender;
+        $profile->age = $request->age;
+        $profile->email = $request->email;
+        $profile->introduction = $request->introduction;
+        $profile->name = $request->name;
+        $profile->name = $request->name;
     }
 
     protected function validator(array $data)
@@ -48,5 +63,7 @@ class ProfileController extends Controller
             'password' => Hash::make($data['password']),
             'picture_path' => $imgPath,
         ]);
+
+        return redirect()->route('moke.index');
     }
 }
