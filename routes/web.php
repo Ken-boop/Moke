@@ -83,7 +83,7 @@ Route::group(['middleware' => 'auth'], function() {
     // // イベント検索
     // Route::post('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');
     // // ユーザー検索画面へ
-    // Route::get('/home/searchUser', 'SearchUserController@index')->name('searchUser.index');
+    Route::get('/home/searchUser', 'SearchUserController@index')->name('searchUser.index');
     // Route::get('/home/users', 'UsersController@showUsers')->name('User.users');
     // チャット画面へ
     Route::get('/home/{user}/chat', 'ChatController@index')->name('chat.index');
