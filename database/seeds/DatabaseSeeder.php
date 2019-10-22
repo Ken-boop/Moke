@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TagsTableSeeder::class);
         $this->call(Mokes_tagsTableSeeder::class);
         $this->call(PrivatemokesTableSeeder::class);
+        $this->call(NotificationsTableSeeder::class);
     }
 }

@@ -16,9 +16,9 @@ class CreateMokesTagsTable extends Migration
         Schema::create('mokes_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('moke_id')->unsigned();
-            $table->foreign('moke_id')->references('id')->on('mokes');
+            $table->foreign('moke_id')->references('id')->on('mokes')->onDelete('cascade');
             $table->integer('tag_id')->unsigned();
-            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             $table->timestamps();
         });
     }
