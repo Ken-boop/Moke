@@ -18,14 +18,17 @@ class FriendsTableSeeder extends Seeder
             [
                 'applicant_id' => '1',
                 'approver_id'  => '2',
+                'status'    => '2',
             ],
             [
                 'applicant_id' => '2',
                 'approver_id'  => '3',
+                'status'       => '1',
             ],
             [
                 'applicant_id' => '1',
                 'approver_id'  => '3',
+                'status'       => '0',
             ],
         ];
 
@@ -34,8 +37,7 @@ class FriendsTableSeeder extends Seeder
             DB::table('friends')->insert([
                 'approver_id' => $friend['approver_id'],
                 'applicant_id' => $friend['applicant_id'],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+                'status'       => $friend['status'],
             ]);
         }
 

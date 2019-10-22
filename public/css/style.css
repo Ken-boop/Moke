@@ -1,4 +1,11 @@
-body{
-    background: skyblue;
-    margin-top:10px;
+.top_btns{
+    margin:15px;
+}
+
+.top_btns > .btn {
+    margin-right:5px;
+}
+
+.friend_register_btn{
+    margin-right:5px;
 }

@@ -72,9 +72,13 @@ Route::group(['middleware' => 'auth'], function() {
     // Route::put('/home/{moke}/{user}/invite', 'NotificationController@store')->name('notification.invite');
     // フレンド画面へ
     Route::get('/home/{user}/friend', 'FriendController@index')->name('friend.index');
+    //フレンド申請 userは誰に渡すか
+    Route::post('/home/{user}/friend', 'FriendController@store')->name('friend.index');
     // 通知画面へ
-    Route::get('/home/{user}/notification', 'NotificationController@index')->name('Notification.index');
-    // // イベント検索画面へaaa
+    Route::get('/home/{user}/notification', 'NotificationController@index')->name('notification.index');
+
+    Route::post('/home/{user}/notification', 'NotificationController@store')->name('notification.store');
+    // イベント検索画面へaaa
     // Route::get('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');
     // // イベント検索
     // Route::post('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');

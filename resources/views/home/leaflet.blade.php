@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,6 +21,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <link rel="stylesheet" href="/css/leaflet.css">
+    <link rel="stylesheet" href="/css/style.css">
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 </head>
 <body>
@@ -28,8 +29,9 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('name', 'この指止まれ!') }}
                 </a>
+                <small>自分でイベントを登録しよう</small>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -80,10 +82,13 @@
             @yield('content')
         </main>
     </div>
-    
-<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
+<div class="top_btns">
+<a href="{{ route('moke.create') }}" class="btn btn-primary event_button">イベントを登録する</a>
 <a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント検索</a>
-
+<a href="{{ route('friend.index', ['user' => $user]) }}" class="btn btn-danger">ユーザーの一覧</a>
+<a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-warning">通知を確認する</a>
+<a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-info">Myプロフィール</a>
+</div>
 
 <div id="mapid"></div>
 
@@ -101,7 +106,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 </script>
 @foreach ($mokes as $moke)
         <div class="m-4 p-4 border border-primary">
-            <p>{{ $moke->moke_name }}</p>
+            <p>イベントの名前：{{ $moke->moke_name }}</p>
             <p>{{ $moke->due_date }}</p>
             <p>{{ $moke->end_date }}</p>
             <p>{{ $moke->moke_detail }}</p>
