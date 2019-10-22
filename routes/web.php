@@ -63,10 +63,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::put('/home/{moke}/update', 'MokeController@update')->name('moke.update');
     // イベント詳細画面へ
     Route::get('/home/{moke}/detail', 'MokeController@show')->name('moke.detail');
-    // プロフィール画面へ
-    Route::get('/home/show', 'ProfileController@show')->name('profile.show');
-    // プロフィール編集実行
-    Route::post('/home/store', 'ProfileController@store')->name('profile.store');
     // // 招待画面へ
     // Route::get('/home/{moke}/invite', 'NotificationController@invite')->name('notification.invite');
     // // 招待実行
