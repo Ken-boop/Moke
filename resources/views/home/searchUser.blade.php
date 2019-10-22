@@ -83,8 +83,14 @@
 <section class="container m-5">
     <div class="row justify-content-center">
         <div class="col-8">
-            <form action="{{ route('moke.detail',['id' => $moke->id ]) }}" method="POST">
+            <form action="{{ route('searchUser.index') }}" method="POST">
             @csrf
+            <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="keyword" id="keyword" placeholder="ユーザーネームを入力" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">検索</button>
+                    </div>
+                    </div>
             <div class="m-4 p-4 border border-primary">
 
 
