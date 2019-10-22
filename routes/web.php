@@ -61,6 +61,9 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home/{moke}/edit', 'MokeController@edit')->name('moke.edit');
     // イベント編集実行
     Route::put('/home/{moke}/update', 'MokeController@update')->name('moke.update');
+    // Route::put('/home/{moke}/{user}/update', 'MokeController@update')->name('moke.update');
+    // イベント削除
+    Route::delete('/home/{moke}/destroy','MokeController@delete')->name('moke.destroy');
     // イベント詳細画面へ
     Route::get('/home/{moke}/detail', 'MokeController@show')->name('moke.detail');
     // // 招待画面へ

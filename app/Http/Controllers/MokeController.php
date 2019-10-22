@@ -67,6 +67,22 @@ class MokeController extends Controller
         $moke->save(); //DBに保存
         return redirect()->route('moke.index'); 
     } 
+    
+    
+    
+    
+   public function delete(int $moke)
+   {
+       //dd('test');
+    //  dd($moke);
+       $moke = Moke::find($moke);
+    // dd($moke);
+       $moke->delete();
+
+       return redirect()->route('moke.index');
+   }
+
+   
 
     public function show(int $id)
     {

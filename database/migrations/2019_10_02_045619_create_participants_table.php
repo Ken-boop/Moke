@@ -18,7 +18,7 @@ class CreateParticipantsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->integer('moke_id')->unsigned();
-            $table->foreign('moke_id')->references('id')->on('mokes');
+            $table->foreign('moke_id')->references('id')->on('mokes')->onDelete('cascade');
             $table->timestamps();
         });
     }
