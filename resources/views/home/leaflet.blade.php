@@ -82,6 +82,8 @@
     </div>
     
 <a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
+<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント検索</a>
+
 
 <div id="mapid"></div>
 
