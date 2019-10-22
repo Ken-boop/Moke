@@ -1,8 +1,22 @@
-// mymap.on('click', function(e) {
-//     //クリック位置経緯度取得
-//     lat = e.latlng.lat;
-//     lng = e.latlng.lng;
-//     //経緯度表示
-//     alert("lat: " + lat + ", lng: " + lng);
-// } );
-// alert('aaaa');
+
+var marker = L.marker();
+
+
+
+function onMapClick(e) {
+	lat = e.latlng.lat;
+	lng = e.latlng.lng;
+
+	
+	marker
+		.setLatLng(e.latlng)
+		.addTo(mymap);
+
+
+	document.getElementById("lat").value=lat;	
+	document.getElementById("lng").value=lng;	
+
+	
+}
+
+mymap.on('click', onMapClick);

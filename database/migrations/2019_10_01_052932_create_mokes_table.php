@@ -22,9 +22,9 @@ class CreateMokesTable extends Migration
             $table->datetime('end_date');
             $table->text('moke_detail'); //追加
             $table->text('address'); //追加
-            $table->float('lat');
-            $table->float('lng');
-            $table->integer('publication_range');
+            $table->string('lat', 30);
+            $table->string('lng', 30);
+            // $table->integer('publication_range');
             $table->timestamps();
         });
     }
