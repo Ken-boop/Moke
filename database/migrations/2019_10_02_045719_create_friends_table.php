@@ -19,6 +19,7 @@ class CreateFriendsTable extends Migration
             $table->foreign('applicant_id')->references('id')->on('users');
             $table->integer('approver_id')->unsigned();
             $table->foreign('approver_id')->references('id')->on('users');
+            $table->integer('status')->unsigned();
             $table->timestamps();
         });
     }
