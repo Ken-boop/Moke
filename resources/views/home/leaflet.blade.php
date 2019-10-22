@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>aaaa</title>
+    <title>home</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/leaflet.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/leaflet.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -82,6 +82,8 @@
     </div>
     
 <a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
+<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント検索</a>
+
 
 <div id="mapid"></div>
 
@@ -96,26 +98,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	id: 'mapbox.streets',
 	accessToken: 'pk.eyJ1Ijoiam9tYTA3MTAiLCJhIjoiY2sxazlrdzBwMjlkczNjbnR3MWFmaTdhdCJ9.vl8SAy54e_LRnbE5F3eVUQ'
 }).addTo(mymap);
-// var moke0=mokes[0];
-// console.log(mokes)
-
-var marker = L.marker([51.5, -0.09]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[0]->moke_name}}</b><br>{{$mokes[0]->moke_detail}}").openPopup();
-var marker = L.marker([51.49, -0.095]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[1]->moke_name}}</b><br>{{$mokes[1]->moke_detail}}").openPopup();
-var marker = L.marker([51.498, -0.08]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[2]->moke_name}}</b><br>{{$mokes[2]->moke_detail}}").openPopup();
-
-mymap.on('click', function(e) {
-    //クリック位置経緯度取得
-    lat = e.latlng.lat;
-    lng = e.latlng.lng;
-    //経緯度表示
-    alert("lat: " + lat + ", lng: " + lng);
-} );
-
 </script>
-
 @foreach ($mokes as $moke)
         <div class="m-4 p-4 border border-primary">
             <p>{{ $moke->moke_name }}</p>
@@ -134,7 +117,7 @@ mymap.on('click', function(e) {
             
         </div>
         
-@endforeach
 
+@endforeach
 </body>
 </html>

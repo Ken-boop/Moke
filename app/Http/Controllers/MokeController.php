@@ -35,6 +35,8 @@ class MokeController extends Controller
         $moke->address = $request->address;
         $moke->due_date = $request->due_date;
         $moke->end_date = $request->end_date;
+        $moke->lat = $request->lat;
+        $moke->lng = $request->lng;
         $moke->moke_detail = $request->moke_detail;
         $moke->save(); //DBに保存
     
@@ -43,19 +45,25 @@ class MokeController extends Controller
 
     public function edit(int $moke)
     {
+                // //ユーザーIDとクリエイターのIDが違う時に403を返す
+                // if (\Auth::user()->id !== $moke->organizer_id) {
+                //     abort(403);
+                // }
         $moke = Moke::find($moke); 
         return view('home.edit',['moke' => $moke]);
     }
 
     public function update(int $moke,Request $request)
     {
-        $moke = Moke::find($moke);
+
         $moke->moke_name= $request->moke_name;
         $moke->moke_detail= $request->moke_detail;
-        $moke->organizer_id = Auth::user()->id;
+        // $moke->organizer_id = Auth::user()->id;
         $moke->due_date = $request->due_date;
         $moke->end_date = $request->end_date;
         $moke->address = $request->address;
+        $moke->lat = $request->lat;
+        $moke->lng = $request->lng;
         $moke->save(); //DBに保存
         return redirect()->route('moke.index'); 
     } 
@@ -76,9 +84,11 @@ class MokeController extends Controller
 
    
 
-    public function show(int $moke)
+    public function show(int $id)
     {
+
         $moke = Moke::With('tags')->find($moke);
+
 
         // dd($moke->tags);
 
