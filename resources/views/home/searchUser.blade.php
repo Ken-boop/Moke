@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>home</title>
+    <title>detail</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -80,30 +80,17 @@
             @yield('content')
         </main>
     </div>
-    
-<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
-<a href="{{ route('searchUser.index') }}" class="btn btn-primary btn-block">ユーザー検索</a>
+<section class="container m-5">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form action="{{ route('moke.detail',['id' => $moke->id ]) }}" method="POST">
+            @csrf
+            <div class="m-4 p-4 border border-primary">
 
 
-<div id="mapid"></div>
-
-<script type="text/javascript">
-var mokes = {!! json_encode($mokes->toArray()) !!}
-
-var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-	maxZoom: 18,
-	id: 'mapbox.streets',
-	accessToken: 'pk.eyJ1Ijoiam9tYTA3MTAiLCJhIjoiY2sxazlrdzBwMjlkczNjbnR3MWFmaTdhdCJ9.vl8SAy54e_LRnbE5F3eVUQ'
-}).addTo(mymap);
-</script>
-@foreach ($mokes as $moke)
-<script>
-        var marker = L.marker([{{ $moke->lat }}, {{ $moke->lng}}]).addTo(mymap);
-        marker.bindPopup("<h6>{{$moke->moke_name}}</h6><br><ul><li>開始：{{$moke->due_date}}</li><li>終了：{{$moke->end_date}}</li><li>住所：{{$moke->address}}</li><li>詳細：{{$moke->moke_detail}}</li><li>最終更新：{{$moke->updated_at}}</li></ul><br><a class='btn btn-success1' href='{{ route('moke.detail', ['moke' => $moke->id]) }}'>イベント詳細</a><a class='btn btn-success2' href='{{ route('moke.edit', ['moke' => $moke->id]) }}'>イベント編集</a>").openPopup();
-</script>
-@endforeach
-</body>
+                <a class='btn btn-success' href="{{ route('moke.index')}}">ホーム</a>
+            </div>
+        </div>
+    </div>
+    </body>
 </html>
