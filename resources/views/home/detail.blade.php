@@ -17,12 +17,6 @@
                   <p>{{ $moke->organizer_id }}</p>
                   <p>{{ $moke->updated_at }}</p>
                   <p>{{ $moke->moke_id }}</p>
-                  <p>タグ：
-                    @foreach ($moke->tags as $tag)
-                      #{{ $tag->tag }}
-                      &nbsp;
-                    @endforeach
-                   </p>
               </div>
         </div>
     </div>

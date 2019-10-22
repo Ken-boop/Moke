@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Moke;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class MokeController extends Controller
@@ -14,10 +15,10 @@ class MokeController extends Controller
         // テーブルのデータを全件取得
         // allメソッド：全件データを取得するメソッド
         $mokes = Moke::get();
-
-        // dd($diaries); //var_dump +処理をここで中断
+        $users = new User();
+        $users->id = Auth::user()->id;
         // view('フォルダ名.ファイル名', ['受け取られるデータの名前' =>$とられるデータ,]) 
-        return view('home.leaflet', compact('mokes'));
+        return view('home.leaflet', ['mokes' => $mokes], ['user' => $users->id]);
     }
 
     // イベント新規投稿画面
