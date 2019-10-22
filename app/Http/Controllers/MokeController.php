@@ -73,6 +73,9 @@ class MokeController extends Controller
     
    public function delete(int $moke)
    {
+        if (\Auth::user()->id !== $moke->organizer_id) {
+           abort(403);
+        }
        //dd('test');
     //  dd($moke);
        $moke = Moke::find($moke);
