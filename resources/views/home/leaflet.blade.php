@@ -81,7 +81,7 @@
         </main>
     </div>
     
-<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録</a>
+<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント登録a</a>
 <a href="{{ route('searchUser.index') }}" class="btn btn-primary btn-block">ユーザー検索</a>
 
 
