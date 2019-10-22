@@ -7,11 +7,11 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>aaaa</title>
+    <title>home</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/leaflet.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/leaflet.js') }}" defer></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -84,6 +84,7 @@
     </div>
 <div class="top_btns">
 <a href="{{ route('moke.create') }}" class="btn btn-primary event_button">イベントを登録する</a>
+<a href="{{ route('moke.create') }}" class="btn btn-primary btn-block">イベント検索</a>
 <a href="{{ route('friend.index', ['user' => $user]) }}" class="btn btn-danger">ユーザーの一覧</a>
 <a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-warning">通知を確認する</a>
 <a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-info">Myプロフィール</a>
@@ -102,26 +103,7 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 	id: 'mapbox.streets',
 	accessToken: 'pk.eyJ1Ijoiam9tYTA3MTAiLCJhIjoiY2sxazlrdzBwMjlkczNjbnR3MWFmaTdhdCJ9.vl8SAy54e_LRnbE5F3eVUQ'
 }).addTo(mymap);
-// var moke0=mokes[0];
-// console.log(mokes)
-
-var marker = L.marker([51.5, -0.09]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[0]->moke_name}}</b><br>{{$mokes[0]->moke_detail}}").openPopup();
-var marker = L.marker([51.49, -0.095]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[1]->moke_name}}</b><br>{{$mokes[1]->moke_detail}}").openPopup();
-var marker = L.marker([51.498, -0.08]).addTo(mymap);
-marker.bindPopup("<b>{{$mokes[2]->moke_name}}</b><br>{{$mokes[2]->moke_detail}}").openPopup();
-
-mymap.on('click', function(e) {
-    //クリック位置経緯度取得
-    lat = e.latlng.lat;
-    lng = e.latlng.lng;
-    //経緯度表示
-    alert("lat: " + lat + ", lng: " + lng);
-} );
-
 </script>
-
 @foreach ($mokes as $moke)
         <div class="m-4 p-4 border border-primary">
             <p>イベントの名前：{{ $moke->moke_name }}</p>
@@ -132,9 +114,15 @@ mymap.on('click', function(e) {
             <p>{{ $moke->created_at }}</p>
             <a class="btn btn-success1" href="{{ route('moke.detail', ['moke' => $moke->id]) }}">イベント詳細</a>
             <a class="btn btn-success2" href="{{ route('moke.edit', ['moke' => $moke->id]) }}">イベント編集</a>
+            <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
+                @csrf
+                @method('delete')
+                <button class="btn btn-danger">削除</button>
+            </form>
+            
         </div>
         
-@endforeach
 
+@endforeach
 </body>
 </html>
