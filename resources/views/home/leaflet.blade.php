@@ -108,20 +108,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(mymap);
 </script>
 @foreach ($mokes as $moke)
-        <div class="m-4 p-4 border border-primary">
-            <p>イベントの名前：{{ $moke->moke_name }}</p>
-            <p>{{ $moke->due_date }}</p>
-            <p>{{ $moke->end_date }}</p>
-            <p>{{ $moke->moke_detail }}</p>
-            <p>{{ $moke->address }}</p>
-            <p>{{ $moke->created_at }}</p>
-            <a class="btn btn-success1" href="{{ route('moke.detail', ['moke' => $moke->id]) }}">イベント詳細</a>
-            <a class="btn btn-success2" href="{{ route('moke.edit', ['moke' => $moke->id]) }}">イベント編集</a>
-
-            
-        </div>
-        
-
+<script>
+        var marker = L.marker([{{ $moke->lat }}, {{ $moke->lng}}]).addTo(mymap);
+        marker.bindPopup("<h6>{{$moke->moke_name}}</h6><br><ul><li>開始：{{$moke->due_date}}</li><li>終了：{{$moke->end_date}}</li><li>住所：{{$moke->address}}</li><li>詳細：{{$moke->moke_detail}}</li><li>最終更新：{{$moke->updated_at}}</li></ul><br><a class='btn btn-success1' href='{{ route('moke.detail', ['moke' => $moke->id]) }}'>イベント詳細</a><a class='btn btn-success2' href='{{ route('moke.edit', ['moke' => $moke->id]) }}'>イベント編集</a>").openPopup();
+</script>
 @endforeach
 </body>
 </html>
