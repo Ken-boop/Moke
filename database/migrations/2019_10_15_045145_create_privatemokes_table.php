@@ -20,7 +20,7 @@ class CreatePrivatemokesTable extends Migration
             $table->integer('viewer_id')->unsigned();
             $table->foreign('viewer_id')->references('id')->on('users');
             $table->integer('moke_id')->unsigned();
-            $table->foreign('moke_id')->references('id')->on('mokes');
+            $table->foreign('moke_id')->references('id')->on('mokes')->onDelete('cascade');
             $table->timestamps();
         });
     }
