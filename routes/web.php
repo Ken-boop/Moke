@@ -73,7 +73,7 @@ Route::group(['middleware' => 'auth'], function() {
     // フレンド画面へ
     Route::get('/home/{user}/friend', 'FriendController@index')->name('friend.index');
     //フレンド申請 userは誰に渡すか
-    Route::post('/home/{user}/friend', 'FriendController@store')->name('friend.index');
+    Route::post('/home/{user}/friend', 'FriendController@store')->name('friend.store');
     // 通知画面へ
     Route::get('/home/{user}/notification', 'NotificationController@index')->name('notification.index');
 
