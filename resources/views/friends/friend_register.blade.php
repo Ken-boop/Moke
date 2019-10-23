@@ -7,11 +7,9 @@
         @if (Auth::user()->id !== $user->id)
         <div class="m-4 p-4 border border-primary">
             <p>{{ $user->name }}</p>
-            <form action="{{ route('friend.index',['user' => $user->id]) }}" method="post">
+            <form action="{{ route('friend.store',['user' => $user->id]) }}" method="post">
             @csrf
             <button class="btn-primary" type="submit">友達申請</button>
-            <button class="btn-primary" type="submit">申請済</button>
-            </form>
         </div>
         @endif
     @endforeach

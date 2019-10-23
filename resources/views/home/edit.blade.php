@@ -83,7 +83,7 @@
 <section class="container m-5">
     <div class="row justify-content-center">
         <div class="col-8">
-            <form action="{{ route('moke.update' , ['moke'=>$moke->moke_id] )}}" method="post">
+            <form action="{{ route('moke.update' , ['moke'=>$moke->id] )}}" method="post">
                 @csrf
                 @method('put')
                 <div class="form-group">

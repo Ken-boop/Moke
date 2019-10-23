@@ -10,14 +10,28 @@ use Illuminate\Http\Request;
 
 class NotificationController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
         //0が申請中、1が承認済み、3が拒否した
-        $user = Auth::user()->load('friends');
-        //dd($user);
-        // foreach ($user->friends as $friend) {
-        //    dd($friend->);
+        //$user = Auth::user()->load('friends');
+        // $user = User::get();
+        // //dd($user);
+        // $friends = new Friend;
+        // $friends = Friend::get()->where('approver_id',Auth::user()->id)->where('status',0);
+        $ids = Friend::where('approver_id', Auth::user()->id)
+            ->where('status', 0)
+            ->get()
+            ->pluck('applicant_id')
+            ->toArray();
+        $friends = User::whereIn('id', $ids)->get();
+        $user = $user->id;
+
+
+        //dd($friends);
+        // foreach ( $friends as $friend) {
+        //     dd($friend->name);
         // }
+        //dd($friends, $ids);
 
         //$notifications = Notification::get();
         //$notifications = notification::where('recipient_id', Auth::user()->id)->get();
@@ -43,7 +57,8 @@ class NotificationController extends Controller
         
         //下だとエラーなぜ？compactにしたら解決
         //return view('notifications.notification', ['notifications' => $notifications],['users' => $users],['friend' => $friend]);
-        return view('notifications.notification',compact('user'));
+        
+        return view('notifications.notification',compact('friends','user'));
 
     }
 
@@ -51,13 +66,23 @@ class NotificationController extends Controller
     //本来、notificationから、直接、送る方法があるのでは?
     public function store(User $user)
     {
-        $user1 = Auth::user();
+        $loginuser = Auth::user();
+        $ids = Friend::where('approver_id', Auth::user()->id)
+        ->where('status', 0)
+        ->get()
+        ->pluck('applicant_id')
+        ->first();
 
-        $friend = Friend::where('approver_id', $user1->id)
-            ->where('applicant_id', $user->id)
+        $friend = Friend::where('approver_id', $loginuser->id)
+            ->where('applicant_id', $ids)
             ->first();
-
+        //sdd($friend);
+        if($friend->status === 1){
+            //dd(1);
+             return redirect()->route('notification.index',['user' => Auth::user()->id]);
+         }
         $friend->status = 1;
+        //dd($friend->status);
         $friend->save();
         return redirect()->route('notification.index',['user' => Auth::user()->id]);
     }

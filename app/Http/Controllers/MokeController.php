@@ -54,10 +54,10 @@ class MokeController extends Controller
         return view('home.edit',['moke' => $moke]);
     }
 
-    public function update(int $moke,Request $request)
+    public function update(Moke $moke, Request $request)
     {
-
-        $moke->moke_name= $request->moke_name;
+        //dd($request->lat);
+        $moke->moke_name = $request->moke_name;
         $moke->moke_detail= $request->moke_detail;
         // $moke->organizer_id = Auth::user()->id;
         $moke->due_date = $request->due_date;
@@ -66,6 +66,7 @@ class MokeController extends Controller
         $moke->lat = $request->lat;
         $moke->lng = $request->lng;
         $moke->save(); //DBに保存
+
         return redirect()->route('moke.index'); 
     } 
     
