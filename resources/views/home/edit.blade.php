@@ -83,7 +83,7 @@
 <section class="container m-5">
     <div class="row justify-content-center">
         <div class="col-8">
-            <form action="{{ route('moke.update' , ['moke'=>$moke->moke_id] )}}" method="post">
+            <form action="{{ route('moke.update' , ['moke'=>$moke->id] )}}" method="post">
                 @csrf
                 @method('put')
                 <div class="form-group">
@@ -127,14 +127,14 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                     </div>
                                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">更新</button>
-                        <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
+                    </div>
+                </div>
+            </form>
+            <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger">削除</button>
                         </form>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </section>

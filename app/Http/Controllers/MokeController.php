@@ -54,9 +54,8 @@ class MokeController extends Controller
         return view('home.edit',['moke' => $moke]);
     }
 
-    public function update(int $moke,Request $request)
+    public function update(Moke $moke, Request $request)
     {
-
         $moke->moke_name= $request->moke_name;
         $moke->moke_detail= $request->moke_detail;
         // $moke->organizer_id = Auth::user()->id;
@@ -66,6 +65,7 @@ class MokeController extends Controller
         $moke->lat = $request->lat;
         $moke->lng = $request->lng;
         $moke->save(); //DBに保存
+        
         return redirect()->route('moke.index'); 
     } 
     
@@ -88,13 +88,9 @@ class MokeController extends Controller
 
    
 
-    public function show(int $id)
+    public function show(Moke $moke)
     {
-
-        $moke = Moke::With('tags')->find($moke);
-
-
-        // dd($moke->tags);
+        $moke->load('tags');
 
         return view('home.detail', ['moke' => $moke]);
     }
