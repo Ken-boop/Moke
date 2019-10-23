@@ -127,14 +127,14 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
                     </div>
                                     <div class="text-right">
                         <button type="submit" class="btn btn-primary">更新</button>
-                        <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
+                    </div>
+                </div>
+            </form>
+            <form action="{{ route('moke.destroy', ['moke' => $moke->id]) }}" method="POST" class="d-inline">
                             @csrf
                             @method('delete')
                             <button class="btn btn-danger">削除</button>
                         </form>
-                    </div>
-                </div>
-            </form>
         </div>
     </div>
 </section>
