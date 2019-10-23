@@ -81,7 +81,7 @@ Route::group(['middleware' => 'auth'], function() {
     // イベント検索画面へaaa
     // Route::get('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');
     // // イベント検索
-    // Route::post('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');
+    Route::post('/home/searchMoke', 'SearchMokeController@index')->name('searchMoke.index');
     // // ユーザー検索画面へ
     Route::get('/home/searchUser', 'SearchUserController@index')->name('searchUser.index');
     Route::post('/home/searchUser', 'SearchUserController@search')->name('searchUser.index');
