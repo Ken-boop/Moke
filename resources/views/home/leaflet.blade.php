@@ -78,18 +78,18 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-2">
             @yield('content')
         </main>
     </div>
 
 <div class="top_btns">
 <a href="{{ route('moke.create') }}" class="btn btn-primary event_button">イベントを登録する</a>
-<a href="{{ route('searchMoke.index') }}" class="btn btn-primary btn-block">イベント検索</a>
+<a href="{{ route('searchMoke.index') }}" class="btn btn-success">イベント検索</a>
 <a href="{{ route('friend.index', ['user' => $user]) }}" class="btn btn-danger">ユーザーの一覧</a>
 <a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-warning">通知を確認する</a>
 <a href="{{ route('notification.index', ['user' => $user]) }}" class="btn btn-info">Myプロフィール</a>
-<a href="{{ route('searchUser.index') }}" class="btn btn-primary btn-block">ユーザー検索</a>
+<a href="{{ route('searchUser.index') }}" class="btn btn-warning">ユーザー検索</a>
 </div>
 
 
